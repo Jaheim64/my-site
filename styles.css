@@ -363,6 +363,17 @@ header .container{
     .card{
         border-radius:20px;
     }
+
+      .objective-cta{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    }
+
+    .oc-item{
+        width: 100%;
+        justify-content: center;
+    }
 }
 
 section{margin:72px 0}
