@@ -126,11 +126,79 @@ header .container{
 #certifications .card{padding:12px 12px 12px 18px;border-radius:12px}
 #certifications .card img{width:88px;height:88px;object-fit:contain}
 
-@media (max-width:900px){
-    .hero{flex-direction:column;align-items:flex-start}
-    .avatar{width:200px;height:200px;flex:0 0 200px}
-    .intro h1{font-size:42px}
-    .intro .subtitle{font-size:15px}
+@media (max-width: 900px){
+
+    .container{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+  
+    .hero{
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 24px;
+    }
+
+    .intro{
+        width: 100%;
+    }
+
+    .intro h1{
+        font-size: 3rem;
+    }
+
+    .lead{
+        font-size: 1.2rem;
+        max-width: 100%;
+    }
+
+    .hero-divider{
+        justify-content: center;
+    }
+
+    .hero-badges{
+        justify-content: center;
+    }
+
+      .grid{
+        grid-template-columns: 1fr;
+    }
+
+    .projects-grid{
+        grid-template-columns: 1fr;
+    }
+
+    .project-card{
+        max-width: 100%;
+    }
+      .navlinks{
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .navlinks a{
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    header .container{
+        margin: 10px auto;
+    }
+
+      h2.section-title{
+        font-size: 2.5rem;
+    }
+
+      .card{
+        padding: 16px;
+    }
+
+    .card img{
+        max-width: 80px;
+        height: auto;
+    }
 }
 
 section{margin:72px 0}
