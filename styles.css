@@ -365,7 +365,8 @@ header .container{
     }
 
     .section-title{
-        text-align:center;
+        text-align:left;
+        padding-left: 20px;
     }
 
     .focus-area h3{
