@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Project - Home Lab</title>
+  <script>
+    (function(){
+      var theme = localStorage.getItem('portfolio-theme');
+      if(theme){
+        document.documentElement.setAttribute('data-theme', theme);
+        document.body.setAttribute('data-theme', theme);
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body data-theme="dark">
+  <header>
+    <div class="container nav">
+      <button id="nav-toggle" class="nav-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+      <nav class="navlinks" id="mobile-nav">
+        <a href="../index.html">Home</a>
+        <a href="#overview">Overview</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#challenges">Challenges</a>
+        <a href="#gallery">Gallery</a>
+        <a id="theme-toggle" class="theme-toggle" href="#"></a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container project-page">
+    <section id="overview">
+      <h1>Network Infrastructure and Services Lab</h1>
+      <p class="subtitle">A hands-on Proxmox-based virtualization lab for practicing infrastructure, networking, and systems administration.</p>
+      <div style="margin-top: 40px; display: flex; gap: 40px; align-items: flex-start; flex-wrap: wrap;">
+        <div style="max-width: 550px;">
+          <h3 style="margin-bottom: 20px;">Project Overview</h3>
+          <p style="line-height: 1.8;">This lab is a self-hosted virtualization environment built on Proxmox Virtual Environment, designed to simulate enterprise-grade IT infrastructure. The lab serves as a practical sandbox for testing network services, virtualization concepts, and systems administration workflows without the constraints of production environments.</p>
+          <p style="margin-top: 16px; line-height: 1.8;">Proxmox VE is an open-source hypervisor platform combining KVM virtualization and LXC containerization. The lab leverages this platform to host Windows Server domain services, client machines, and Linux systems to practice real-world IT scenarios.</p>
+          <ul style="margin-top: 20px;">
+            <li>Proxmox cluster with high-availability VMs and LXC containers</li>
+            <li>Windows Server domain controller and client machines</li>
+            <li>Linux systems for networking and utility services</li>
+            <li>Automated provisioning and backup strategies</li>
+          </ul>
+        </div>
+        <div style="flex-shrink: 0; width: 280px; text-align: center;">
+          <img src="../images/proxmox.png" alt="Proxmox logo" style="width: 100%; margin-bottom: 16px;">
+          <p class="meta">Hypervisor platform</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="objective" style="margin-top: 60px;">
+      <h2 class="section-title">Why I Built This Lab</h2>
+      <div style="max-width: 550px; padding-left: 20px;">
+        <p style="margin-bottom: 24px; line-height: 1.8;">Academic coursework provided theory, but hands-on experience is where real learning happens. This lab bridges that gap by offering a sandbox where mistakes become lessons rather than production incidents.</p>
+        
+        <p style="margin-bottom: 24px; line-height: 1.8;">Building and troubleshooting real virtual environments accelerated my understanding of how systems interact and fail. When domain joins fail, DNS doesn't resolve, or permissions block access, I had to investigate logs, test hypotheses, and implement solutions—skills that define systems engineers and infrastructure professionals.</p>
+        
+        <p style="margin-bottom: 24px; line-height: 1.8;">Enterprise IT departments manage complex multi-system architectures with domain services, DHCP, DNS, file sharing, and user management. By replicating these scenarios in a lab, I gained practical experience deploying Windows Server, configuring Active Directory, managing permissions, and maintaining network services. These hands-on skills are directly applicable to systems administration roles and cloud infrastructure careers.</p>
+        
+        <p style="line-height: 1.8;">Hands-on experience with hypervisors, virtual networking, storage allocation, and resource management is essential for infrastructure and cloud careers. The lab provided practical exposure to provisioning VMs, configuring networking, managing compute resources, and understanding the fundamentals of how production environments operate at scale.</p>
+      </div>
+    </section>
+
+    <section id="architecture" style="margin-top: 60px;">
+      <h2 class="section-title">Environment Architecture</h2>
+      
+      <div style="margin-bottom: 48px;">
+        <h3 style="margin-bottom: 20px; color: var(--text); padding-left: 20px;">Core Systems</h3>
+        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px;">
+          <div class="card">
+            <h4>Proxmox Hypervisor</h4>
+            <p>Bare-metal virtualization platform managing compute, storage, and networking for all VMs and containers. Features clustering for high availability and resource balancing.</p>
+          </div>
+          <div class="card">
+            <h4>Windows Server (DC)</h4>
+            <p>Domain controller running Active Directory, DHCP, and DNS. Serves as the centralized authentication and network configuration authority for all machines.</p>
+          </div>
+          <div class="card">
+            <h4>Windows Clients</h4>
+            <p>Domain-joined machines for testing group policies, file sharing, and workstation management. Simulates how end-user devices interact with enterprise infrastructure.</p>
+          </div>
+          <div class="card">
+            <h4>Linux Systems</h4>
+            <p>Debian-based VMs for networking, NFS file sharing, and cross-platform testing. Demonstrates heterogeneous environments coexisting on the same network.</p>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div style="max-width: 550px; padding-left: 20px;">
+          <h3 style="margin-bottom: 20px; color: var(--text);">Key Infrastructure Details</h3>
+          <p style="margin-bottom: 32px;">The backbone of this lab consists of two Dell Optiplex workstations repurposed to provide the compute, storage, and networking infrastructure for everything to run.</p>
+        </div>
+        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px;">
+          <div class="card">
+            <h3 style="margin-bottom: 20px;">Node 1</h3>
+            <p><strong>CPU:</strong> Intel Xeon E5-1620 v2</p>
+            <p style="margin-top: 12px;"><strong>Memory:</strong> 64GB DDR3 ECC RAM</p>
+            <p style="margin-top: 12px;"><strong>Storage:</strong> 2TB NVMe + 2TB SSD</p>
+            <p style="margin-top: 12px;"><strong>Network:</strong> 1GbE + 10GbE adapters</p>
+          </div>
+          <div class="card">
+            <h3 style="margin-bottom: 20px;">Node 2</h3>
+            <p><strong>CPU:</strong> Intel Xeon E5-1620 v2</p>
+            <p style="margin-top: 12px;"><strong>Memory:</strong> 64GB DDR3 ECC RAM</p>
+            <p style="margin-top: 12px;"><strong>Storage:</strong> 2TB NVMe + 2TB SSD</p>
+            <p style="margin-top: 12px;"><strong>Network:</strong> 1GbE + 10GbE adapters</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="implementations" style="margin-top: 60px;">
+      <h2 class="section-title">Technologies Implemented</h2>
+      <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px;">
+        <div class="card">
+          <h3>Active Directory & Domain Services</h3>
+          <p>Centralized user and computer management with group policies. Created organizational units, security groups, and configured policy enforcement for passwords and software deployment.</p>
+        </div>
+        <div class="card">
+          <h3>DNS & DHCP</h3>
+          <p>Windows Server DNS resolves internal hostnames. DHCP automatically assigns IP addresses to domain clients. Configured zones and scopes for enterprise network infrastructure.</p>
+        </div>
+        <div class="card">
+          <h3>File Sharing & Access Control</h3>
+          <p>SMB file shares with NTFS permissions. Tested access control: denying unauthorized users, granting group-based permissions, and enforcing folder hierarchies.</p>
+        </div>
+        <div class="card">
+          <h3>Virtualization & Resource Management</h3>
+          <p>VM provisioning with vCPU, memory, and storage allocation. Configured virtual network adapters, tested snapshots, and practiced live migration concepts.</p>
+        </div>
+        <div class="card">
+          <h3>Virtual Networking</h3>
+          <p>Proxmox-managed virtual networks connecting all VMs on shared subnets. Proper DNS and DHCP allow machines to discover and communicate using domain names.</p>
+        </div>
+        <div class="card">
+          <h3>Backup & Recovery</h3>
+          <p>Proxmox snapshot functionality for capturing VM states. Practiced restoration after intentional configuration changes and testing failures.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="challenges" style="margin-top: 60px;">
+      <h2 class="section-title">Problems Solved</h2>
+      <div style="max-width: 550px; padding-left: 20px;">
+        <p style="color: var(--muted); margin-bottom: 32px; font-size: 0.95rem;">Real issues encountered and resolved during lab development.</p>
+      </div>
+      <div class="grid" style="grid-template-columns: 1fr; gap: 32px;">
+        <div class="card">
+          <h3>Domain Join Failures</h3>
+          <p><strong>Problem:</strong> Clients could not join the domain—"The specified domain either does not exist or could not be contacted."</p>
+          <p style="margin-top: 12px;"><strong>Resolution:</strong> Verified DNS was resolving the domain controller. Ensured DHCP provided the correct DNS server address. Rebuilt the DNS client cache.</p>
+          <p style="margin-top: 12px;"><strong>Lesson:</strong> DNS and DHCP are foundational for Active Directory. Clients must discover the domain controller before joining.</p>
+        </div>
+
+        <div class="card">
+          <h3>DNS Resolution Issues</h3>
+          <p><strong>Problem:</strong> VMs resolved external hostnames but not internal domain names (e.g., server.domain.local).</p>
+          <p style="margin-top: 12px;"><strong>Resolution:</strong> Verified DNS zone creation. Added domain controller as both DNS server and authoritative nameserver. Cleared client DNS caches and re-registered hostnames.</p>
+          <p style="margin-top: 12px;"><strong>Lesson:</strong> DNS zones must explicitly exist; automatic registration is not guaranteed.</p>
+        </div>
+
+        <div class="card">
+          <h3>File Share Permission Conflicts</h3>
+          <p><strong>Problem:</strong> Users denied access to file shares despite group membership and "Full Control" permissions.</p>
+          <p style="margin-top: 12px;"><strong>Resolution:</strong> Discovered Windows enforces the most restrictive of share and NTFS permissions. Reconfigured share permissions to match intended access control.</p>
+          <p style="margin-top: 12px;"><strong>Lesson:</strong> Both share and NTFS permission layers must be configured correctly for access to work.</p>
+        </div>
+
+        <div class="card">
+          <h3>Cross-Platform Network Connectivity</h3>
+          <p><strong>Problem:</strong> Linux VMs could not communicate with Windows VMs on the same subnet.</p>
+          <p style="margin-top: 12px;"><strong>Resolution:</strong> Verified virtual network adapters on the same Proxmox network. Configured firewall rules on both Windows and Linux to allow ICMP and SMB traffic.</p>
+          <p style="margin-top: 12px;"><strong>Lesson:</strong> Heterogeneous environments require explicit firewall rules on each OS for cross-platform communication.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery" style="margin-top: 60px;">
+      <h2 class="section-title">Lab in Action</h2>
+      <p style="color: var(--muted); margin-bottom: 32px; font-size: 0.95rem; padding-left: 20px;">Screenshots and system views demonstrating the infrastructure and services.</p>
+      <div class="gallery-frame">
+        <div class="gallery-controls">
+          <button class="gallery-btn left" aria-label="Scroll gallery left">←</button>
+          <button class="gallery-btn right" aria-label="Scroll gallery right">→</button>
+        </div>
+        <div class="gallery-scroll">
+          <div class="gallery-item"><img src="../images/prox1.png" alt="Proxmox dashboard with running VMs"></div>
+          <div class="gallery-item"><img src="../images/prox3.png" alt="Virtual machine resources and status"></div>
+          <div class="gallery-item"><img src="../images/prox3.png" alt="Network configuration and virtual switches"></div>
+          <div class="gallery-item"><img src="../images/prox1.png" alt="Cluster node overview and health status"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div class="image-overlay" aria-hidden="true">
+    <div class="close-lightbox" aria-label="Close">×</div>
+    <img src="" alt="Expanded screenshot">
+  </div>
+  <script src="../script.js"></script>
+
+  <footer>
+    © 2026 Jaheim Walker
+  </footer>
+</body>
+</html>
