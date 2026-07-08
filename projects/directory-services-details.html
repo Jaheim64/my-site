@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Project - Directory Services</title>
+  <script>
+    (function(){
+      var theme = localStorage.getItem('portfolio-theme');
+      if(theme){
+        document.documentElement.setAttribute('data-theme', theme);
+        document.body.setAttribute('data-theme', theme);
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body data-theme="dark">
+  <header>
+    <div class="container nav">
+      <button id="nav-toggle" class="nav-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+      <nav class="navlinks" id="mobile-nav">
+        <a href="../index.html">Home</a>
+        <a href="#overview">Overview</a>
+        <a href="#implementation">Implementation</a>
+        <a href="#access-control">Access Control</a>
+        <a id="theme-toggle" class="theme-toggle" href="#"></a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container project-page">
+    <section id="overview">
+      <h1>Directory Services &amp; Infrastructure Deployment</h1>
+      <p class="subtitle">A lab-based deployment of Active Directory and related identity and access management services.</p>
+      <div style="margin-top: 40px; overflow:hidden;">
+        <div style="float:right; width:280px; margin-left:40px; text-align:center;">
+          <img src="../images/ActiveDirectory.png" alt="Active Directory screenshot" style="width: 100%; margin-bottom: 16px;">
+          <p class="meta">Active Directory lab environment</p>
+        </div>
+        <div class="section-copy">
+          <h3 style="margin-bottom: 20px;">Project Overview</h3>
+          <p style="line-height: 1.8;">This project involved building a Windows Server-based directory services environment to simulate the core identity and access management capabilities used in enterprise networks. It provided practical experience with Active Directory, user administration, domain joining, and shared-resource access control.</p>
+          <p style="margin-top: 16px; line-height: 1.8;">The deployment focused on creating a centralized structure where users, computers, and groups could be managed from a single domain environment. This helped reinforce how organizations enforce authentication, authorization, and file access policies across multiple systems.</p>
+          <ul style="margin-top: 20px;">
+            <li>Deployed Active Directory Domain Services in Windows Server</li>
+            <li>Created users, groups, and organizational units</li>
+            <li>Configured domain-joined client systems and shared folder access</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="implementation" style="margin-top: 60px;">
+      <h2 class="section-title">Implementation</h2>
+      <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px;">
+        <div class="card">
+          <h3>Active Directory Deployment</h3>
+          <p>Installed and configured Active Directory Domain Services to establish a functioning domain environment with centralized identity services.</p>
+        </div>
+        <div class="card">
+          <h3>User and Group Management</h3>
+          <p>Created users, security groups, and organizational units to mirror common enterprise administration practices and role-based access control.</p>
+        </div>
+        <div class="card">
+          <h3>Client Integration</h3>
+          <p>Joined Windows client machines to the domain so they could authenticate through the centralized directory services environment.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="technologies" style="margin-top: 60px;">
+      <h2 class="section-title">Technologies Implemented</h2>
+      <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px;">
+        <div class="card">
+          <h3>Active Directory & Domain Services</h3>
+          <p>Installed and configured AD DS on Windows Server to deliver centralized identity, authentication, and policy management for the lab environment.</p>
+        </div>
+        <div class="card">
+          <h3>DNS & DHCP</h3>
+          <p>Implemented DNS zones and DHCP scopes to support domain name resolution and automated IP assignment for domain-joined systems.</p>
+        </div>
+        <div class="card">
+          <h3>File Sharing & Permissions</h3>
+          <p>Built SMB file shares with coordinated share and NTFS permissions. Tested effective access control using groups, inheritance, and delegated rights.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="access-control" style="margin-top: 60px;">
+      <h2 class="section-title">Access Control &amp; Permissions</h2>
+      <div class="grid" style="grid-template-columns: 1fr; gap: 32px;">
+        <div class="card">
+          <h3>Shared Resources</h3>
+          <p>Configured shared folders and applied both share permissions and NTFS permissions to control who could access files and what actions they could perform.</p>
+          <p style="margin-top: 12px;">This included testing inheritance, effective access, and group-based permission assignment to ensure access controls behaved as intended.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery" style="margin-top: 60px;">
+      <h2 class="section-title">Directory Services in Action</h2>
+      <p style="color: var(--muted); margin-bottom: 32px; font-size: 0.95rem;">Snapshots of my Windows Server virtual machine and Active Directory configuration and components.</p>
+      <div class="gallery-frame">
+        <div class="gallery-controls">
+          <button class="gallery-btn left" aria-label="Scroll gallery left">←</button>
+          <button class="gallery-btn right" aria-label="Scroll gallery right">→</button>
+        </div>
+        <div class="gallery-scroll" id="active-dir-gallery-scroll" data-gallery-folder="../images/active-dir" data-gallery-manifest="activeDirGalleryMedia"></div>
+      </div>
+    </section>
+  </main>
+
+  <div class="image-overlay" aria-hidden="true">
+    <div class="close-lightbox" aria-label="Close">×</div>
+    <div class="overlay-media"></div>
+  </div>
+  <script src="../images/active-dir/gallery-media.js"></script>
+  <script src="../script.js"></script>
+
+  <footer>
+    © 2026 Jaheim Walker
+  </footer>
+</body>
+</html>
